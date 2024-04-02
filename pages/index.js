@@ -8,7 +8,7 @@ export default function Home() {
         <h2 className="inter text-4xl mb-3 font-bold text-gray-800">
           Welcome to Your Next.js App{" "}
           <span className="block text-blue-500 text-2xl font-normal">
-            Deployed to DigitalOcean
+            Deployed to for test purposes
           </span>
         </h2>
 
