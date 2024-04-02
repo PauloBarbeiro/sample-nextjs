@@ -1,6 +1,26 @@
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 
 export default function Home() {
+  const [response, setResponse] = useState('');
+
+  useEffect(() => {
+    // Function to fetch data
+    const fetchData = async () => {
+      try {
+        const result = await fetch('https://orca-app-3obxi.ondigitalocean.app/');
+        const text = await result.text(); // Assuming the response is plain text
+        setResponse(text);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        setResponse('Failed to fetch data');
+      }
+    };
+
+    fetchData();
+  }, []); // Empty array means this effect runs only once after the initial render
+
+  
   return (
     <div className="min-h-screen lg:flex text-lg">
       {/* left side */}
@@ -10,6 +30,7 @@ export default function Home() {
           <span className="block text-blue-500 text-2xl font-normal">
             Deployed to for test purposes
           </span>
+            <span>{response}</span>
         </h2>
 
         <p className="text-gray-700 mb-6">
